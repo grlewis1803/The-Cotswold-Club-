@@ -1,1 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>The Cotswold Club</title>
+
+<style>
+
+:root {
+    --forest: #263629;
+    --sage: #7c8976;
+    --cream: #f7f4ec;
+    --stone: #ded8ca;
+    --gold: #b4975a;
+    --white: #ffffff;
+    --text: #283029;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+/* NAVIGATION */
+
+nav {
+    background: var(--forest);
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: #d6c28b;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(247,244,236,0.85),
+            rgba(247,244,236,0.85)
+        ),
+        url("cotswolds.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.monogram {
+    font-size: 80px;
+    color: var(--forest);
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    letter-spacing: 7px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.hero h2 {
+    font-size: 18px;
+    letter-spacing: 7px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.tagline {
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.button {
+    display: inline-block;
+    background: var(--forest);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin: 10px;
+}
+
+.button:hover {
+    background: var(--gold);
+}
+
+/* SECTIONS */
+
+section {
+    padding: 80px 8%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin: 20px auto 50px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* BENEFITS */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.benefit {
+    text-align: center;
+    padding: 35px 25px;
+    background: white;
+}
+
+.benefit-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.benefit h3 {
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+/* JOIN */
+
+.join-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 50px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--stone);
+    font-family: inherit;
+    font-size: 16px;
+    background: var(--cream);
+}
+
+.submit {
+    width: 100%;
+    border: none;
+    background: var(--forest);
+    color: white;
+    padding: 17px;
+    font-family: inherit;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: var(--gold);
+}
+
+/* BUSINESS DIRECTORY */
+
+.directory-controls {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.business {
+    background: white;
+    padding: 25px;
+    border-top: 3px solid var(--gold);
+}
+
+.business h3 {
+    margin-top: 0;
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.business p {
+    line-height: 1.6;
+}
+
+.discount {
+    display: inline-block;
+    background: var(--forest);
+    color: white;
+    padding: 8px 12px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--forest);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+footer h2 {
+    font-weight: normal;
+    letter-spacing: 4px;
+}
+
+footer p {
+    opacity: 0.8;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .benefits,
+    .business-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .directory-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .join-box {
+        padding: 30px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="logo">
+THE COTSWOLD CLUB
+</div>
+
+<div class="nav-links">
+
+<a href="#" onclick="showPage('home')">
+Home
+</a>
+
+<a href="#" onclick="showPage('join')">
+Join
+</a>
+
+<a href="#" onclick="showPage('businesses')">
+Explore
+</a>
+
+</div>
+
+</nav>
+
+
+
+<!-- HOME PAGE -->
+
+<div id="home">
+
+<div class="hero">
+
+<div class="hero-content">
+
+<div class="monogram">
+CC
+</div>
+
+<h1>
+THE COTSWOLD CLUB
+</h1>
+
+<h2>
+A MEMBERSHIP FOR LIFE'S BETTER DAYS
+</h2>
+
+<div class="tagline">
+Explore more. Save more.
+</div>
+
+<a
+href="#"
+class="button"
+onclick="showPage('join')">
+
+JOIN THE CLUB
+
+</a>
+
+<a
+href="#"
+class="button"
+onclick="showPage('businesses')">
+
+EXPLORE THE CLUB
+
+</a>
+
+</div>
+
+</div>
+
+
+<section>
+
+<h2 class="section-title">
+DISCOVER MORE
+</h2>
+
+<p class="section-intro">
+
+The Cotswold Club is a membership for people who love
+good food, beautiful places and unforgettable experiences.
+
+Enjoy exclusive discounts and member benefits at carefully
+selected businesses across the Cotswolds and beyond.
+
+</p>
+
+
+<div class="benefits">
+
+<div class="benefit">
+
+<div class="benefit-icon">
+🍴
+</div>
+
+<h3>
+GOOD FOOD
+</h3>
+
+<p>
+Enjoy exclusive savings at restaurants,
+pubs and food producers.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">
+☕
+</div>
+
+<h3>
+GREAT PLACES
+</h3>
+
+<p>
+Discover independent cafés,
+shops and attractions.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">
+✦
+</div>
+
+<h3>
+MORE TO EXPLORE
+</h3>
+
+<p>
+Unlock member-only experiences,
+offers and rewards.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- JOIN PAGE -->
+
+<div id="join" style="display:none;">
+
+<section>
+
+<h2 class="section-title">
+JOIN THE CLUB
+</h2>
+
+<p class="section-intro">
+
+Become a member of The Cotswold Club
+and discover more for less.
+
+</p>
+
+
+<div class="join-box">
+
+<form onsubmit="registerMember(event)">
+
+<div class="form-group">
+
+<label>
+FIRST NAME
+</label>
+
+<input
+type="text"
+id="firstName"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+LAST NAME
+</label>
+
+<input
+type="text"
+id="lastName"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+EMAIL
+</label>
+
+<input
+type="email"
+id="email"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+POSTCODE
+</label>
+
+<input
+type="text"
+id="postcode"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+I'M INTERESTED IN...
+</label>
+
+<select>
+
+<option>
+Joining the Club
+</option>
+
+<option>
+Finding out more
+</option>
+
+<option>
+Becoming a business partner
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="submit"
+type="submit">
+
+JOIN / REGISTER YOUR INTEREST
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- BUSINESS PAGE -->
+
+<div id="businesses" style="display:none;">
+
+<section>
+
+<h2 class="section-title">
+EXPLORE THE CLUB
+</h2>
+
+<p class="section-intro">
+
+Discover restaurants, cafés, attractions,
+experiences and independent businesses
+where your membership can be used.
+
+</p>
+
+
+<div class="directory-controls">
+
+<input
+type="text"
+id="search"
+placeholder="Search businesses..."
+onkeyup="filterBusinesses()"
+>
+
+
+<select
+id="area"
+onchange="filterBusinesses()">
+
+<option value="all">
+All areas
+</option>
+
+<option>
+Cotswolds
+</option>
+
+<option>
+Oxfordshire
+</option>
+
+<option>
+Gloucestershire
+</option>
+
+<option>
+Wiltshire
+</option>
+
+<option>
+Somerset
+</option>
+
+<option>
+Devon
+</option>
+
+<option>
+Dorset
+</option>
+
+<option>
+Cornwall
+</option>
+
+</select>
+
+
+<select
+id="category"
+onchange="filterBusinesses()">
+
+<option value="all">
+All categories
+</option>
+
+<option>
+Food & Drink
+</option>
+
+<option>
+Cafés
+</option>
+
+<option>
+Attractions
+</option>
+
+<option>
+Experiences
+</option>
+
+<option>
+Stay
+</option>
+
+<option>
+Local Shops
+</option>
+
+</select>
+
+</div>
+
+
+<div
+class="business-grid"
+id="businessGrid">
+
+
+<!-- BUSINESS 1 -->
+
+<div
+class="business"
+data-area="Cotswolds"
+data-category="Food & Drink">
+
+<h3>
+The Cotswold Kitchen
+</h3>
+
+<p>
+A beautiful independent restaurant
+serving seasonal local food.
+</p>
+
+<p>
+📍 Cotswolds
+</p>
+
+<span class="discount">
+15% MEMBER SAVING
+</span>
+
+</div>
+
+
+<!-- BUSINESS 2 -->
+
+<div
+class="business"
+data-area="Oxfordshire"
+data-category="Cafés">
+
+<h3>
+The Village Café
+</h3>
+
+<p>
+Independent café serving coffee,
+cakes and light lunches.
+</p>
+
+<p>
+📍 Oxfordshire
+</p>
+
+<span class="discount">
+10% MEMBER SAVING
+</span>
+
+</div>
+
+
+<!-- BUSINESS 3 -->
+
+<div
+class="business"
+data-area="Gloucestershire"
+data-category="Attractions">
+
+<h3>
+Cotswold Heritage House
+</h3>
+
+<p>
+Explore a historic Cotswold house
+and beautiful gardens.
+</p>
+
+<p>
+📍 Gloucestershire
+</p>
+
+<span class="discount">
+20% MEMBER SAVING
+</span>
+
+</div>
+
+
+<!-- BUSINESS 4 -->
+
+<div
+class="business"
+data-area="Devon"
+data-category="Experiences">
+
+<h3>
+Coastal Adventures
+</h3>
+
+<p>
+Outdoor experiences and
+adventures along the coast.
+</p>
+
+<p>
+📍 Devon
+</p>
+
+<span class="discount">
+15% MEMBER SAVING
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>
+THE COTSWOLD CLUB
+</h2>
+
+<p>
+Explore more. Save more.
+</p>
+
+<p>
+© 2026 The Cotswold Club
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function showPage(page) {
+
+document.getElementById("home").style.display = "none";
+
+document.getElementById("join").style.display = "none";
+
+document.getElementById("businesses").style.display = "none";
+
+document.getElementById(page).style.display = "block";
+
+window.scrollTo(0,0);
+
+}
+
+
+
+/* MEMBER REGISTRATION */
+
+function registerMember(event) {
+
+event.preventDefault();
+
+const firstName =
+document.getElementById("firstName").value;
+
+alert(
+"Thank you " +
+firstName +
+"! You're on the list for The Cotswold Club."
+);
+
+}
+
+
+
+/* BUSINESS SEARCH */
+
+function filterBusinesses() {
+
+const search =
+document.getElementById("search")
+.value
+.toLowerCase();
+
+const area =
+document.getElementById("area")
+.value;
+
+const category =
+document.getElementById("category")
+.value;
+
+
+const businesses =
+document.querySelectorAll(".business");
+
+
+businesses.forEach(function(business) {
+
+const text =
+business.innerText.toLowerCase();
+
+const businessArea =
+business.dataset.area;
+
+const businessCategory =
+business.dataset.category;
+
+
+const matchesSearch =
+text.includes(search);
+
+const matchesArea =
+area === "all" ||
+businessArea === area;
+
+const matchesCategory =
+category === "all" ||
+businessCategory === category;
+
+
+if (
+matchesSearch &&
+matchesArea &&
+matchesCategory
+) {
+
+business.style.display = "block";
+
+} else {
+
+business.style.display = "none";
+
+}
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>
